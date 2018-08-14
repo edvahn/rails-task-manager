@@ -1,0 +1,16 @@
+<div class="container">
+  <h1><%= @task.title %></h1>
+  <div class="wrapper-grey">
+    <span><p><%= @task.details %></p></span>
+  </div>
+  <p>
+    <% if @task.completed %>
+      <i class="fa fa-check-square-o" aria-hidden="true"></i> This task is completed
+    <% else %>
+      <i class="fa fa-square-o" aria-hidden="true"></i> This task is not completed yet
+    <% end %>
+ </p>
+  <%= button_to 'edit', "#{@task.id}/edit", :method => "get", class: "btn btn-primary" %>
+  <br/>
+   <p><i class="fa fa-undo" aria-hidden="true"></i> <%= link_to 'Back to list', tasks_path %>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <h1> Edit Task</h1>
+    <%= form_for(@task) do |f| %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <div class="form-group">
+        <strong><%= f.label 'Title' %></strong>
+        <%= f.text_field :title, class: 'form-control', placeholder: "Enter a task" %>
+        <small id="taskHelp" class="form-text text-muted">Keep it simple.</small>
+      </div>
+
+      <div class="form-group">
+        <strong><%= f.label :details %></strong>
+        <%= f.text_field :details, class: 'form-control', placeholder: "A short description of the task and relevant informations" %>
+      </div>
+
+    <%= f.check_box :completed, {}, "true", "false" %>
+    <%= f.label(:completed, "This task is completed") %>
+    <br/>
+    <%= f.submit class: "btn btn-primary"%>
+  <% end %>
+  <br/>
+  <p><i class="fa fa-undo" aria-hidden="true"></i> <%= link_to 'Back to list', tasks_path %></p>
+</div>
